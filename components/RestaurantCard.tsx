@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const RestaurantCard = ({ propTitle = "default Value", rate = 4 }) => {
   const [back, setBackgroundColor] = useState("red");
+  console.log("Changes");
   return (
     <TouchableOpacity
       onPress={() => {
