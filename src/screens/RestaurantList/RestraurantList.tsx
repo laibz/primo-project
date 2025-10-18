@@ -2,7 +2,7 @@ import RestaurantCard from "@/src/components/RestaurantCard";
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-const index = () => {
+const RestaurantList = () => {
   const restaurantData = [
     { ataTitle: "italian", id: "1", rat: 4 },
     { dataTitle: "food in", id: "1", rat: undefined },
@@ -47,7 +47,7 @@ const index = () => {
   );
 };
 
-export default index;
+export default RestaurantList;
 
 const styles = StyleSheet.create({
   cardContainer: {

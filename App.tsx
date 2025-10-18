@@ -1,12 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import RestaurantList from "./src/screens/RestaurantList/RestraurantList";
 
 const App = () => {
-  return (
-    <View>
-      <Text>Laibaaaaaaah</Text>
-    </View>
-  );
+  return <RestaurantList />;
 };
 
 export default App;
