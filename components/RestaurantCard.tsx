@@ -1,16 +1,8 @@
-import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const RestaurantCard = ({ propTitle = "default Value", rate = 4 }) => {
-  const [back, setBackgroundColor] = useState("red");
-  console.log("ChangesPUSHHH");
+const RestaurantCard = ({ propTitle = "default Value", rate = "N/A" }) => {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        setBackgroundColor(back == "white" ? "black" : "white");
-      }}
-      style={styles.container}
-    >
+    <TouchableOpacity onPress={() => {}} style={styles.container}>
       <Image
         resizeMode="cover"
         source={{
@@ -18,7 +10,7 @@ const RestaurantCard = ({ propTitle = "default Value", rate = 4 }) => {
         }}
         style={styles.image}
       />
-      <View style={[styles.bottomContainer, { backgroundColor: back }]}>
+      <View style={[styles.bottomContainer]}>
         <View style={styles.textContainer}>
           <Text style={styles.titleText}>{propTitle} </Text>
           <Text> star rating {rate}</Text>

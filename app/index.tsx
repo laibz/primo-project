@@ -1,49 +1,49 @@
-import RestaurantCard from "@/components/RestaurantCard";
-import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { useState } from "react";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import RestaurantCard from "../components/RestaurantCard";
 
 const index = () => {
   const restaurantData = [
-    { ataTitle: "italian", id: "1", rat: 4 },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
-    { dataTitle: "food in", id: "1", rat: undefined },
+    { dataTitle: "italian", id: "1", rat: 4 },
+    { dataTitle: "food in", id: "2", rat: undefined },
+    { dataTitle: "food in", id: "3", rat: undefined },
   ];
+  const [restaurantDataState, setRestaurantDataState] =
+    useState(restaurantData);
+  console.log(restaurantData);
   return (
-    <FlatList
-      data={restaurantData}
-      // horizontal
-      style={{ marginHorizontal: 20 }}
-      contentContainerStyle={{ gap: 20 }}
-      renderItem={({ item }) => (
-        <RestaurantCard propTitle={item.dataTitle} rate={item.rat} />
-      )}
-    />
-    // <View style={styles.container}>
-    //   <View style={styles.cardContainer}>
-    //     <View style={styles.innerCardContainer}>
-    //       <Image
-    //         source={require("../assets/images/li.png")}
-    //         style={styles.image}
-    //       />
-    //       <Text style={{ fontSize: 20 }}> {"Laiba \n zubair"}</Text>
-    //     </View>
-    //     <TouchableOpacity style={styles.button}>
-    //       <Text>BUTTON</Text>
-    //     </TouchableOpacity>
-    //   </View>
-    // </View>
+    <View>
+      <TouchableOpacity
+        style={{ alignSelf: "center", backgroundColor: "pink" }}
+        children={<Text>AddItem</Text>}
+        onPress={() => {
+          /* restaurantData.filter(restaurantData.dataTitle ==) */
+
+          setRestaurantDataState((prev) => {
+            return prev.filter((item) => item.dataTitle !== "food in");
+          });
+
+          // console.log(restaurantData);
+        }}
+      />
+
+      <FlatList
+        data={restaurantDataState}
+        // horizontal
+        keyExtractor={(item) => item.id}
+        style={{ marginHorizontal: 20 }}
+        contentContainerStyle={{ gap: 20 }}
+        renderItem={({ item }) => (
+          <RestaurantCard propTitle={item.dataTitle} rate={item.rat} />
+        )}
+      />
+    </View>
   );
 };
 
